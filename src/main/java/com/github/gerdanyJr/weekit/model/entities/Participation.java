@@ -33,4 +33,9 @@ public class Participation {
     @JoinColumn(name = "student_id")
     @JsonManagedReference
     private Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    @JsonManagedReference
+    private Course course;
 }
