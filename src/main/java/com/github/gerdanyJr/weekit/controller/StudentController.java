@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,5 +34,10 @@ public class StudentController {
     @GetMapping
     public ResponseEntity<List<Student>> findAll() {
         return ResponseEntity.ok(studentService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Student> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(studentService.findById(id));
     }
 }
