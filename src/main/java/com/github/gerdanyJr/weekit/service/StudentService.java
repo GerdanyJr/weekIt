@@ -9,4 +9,6 @@ public interface StudentService {
     public Student create(CreateStudentReq req);
 
     public List<Student> findAll();
+
+    public Student findById(Long id);
 }
