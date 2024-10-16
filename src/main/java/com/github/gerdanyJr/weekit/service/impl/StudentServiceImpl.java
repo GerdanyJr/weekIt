@@ -41,4 +41,13 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findByRegistrationNumber(registrationNumber).get();
     }
 
+    @Override
+    public Student update(Long id, CreateStudentReq req) {
+        Student foundStudent = studentRepository.findById(id).get();
+
+        BeanUtils.copyProperties(req, foundStudent);
+
+        return studentRepository.save(foundStudent);
+    }
+
 }
