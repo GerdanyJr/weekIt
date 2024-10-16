@@ -36,4 +36,9 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findById(id).get();
     }
 
+    @Override
+    public Student findByRegistrationNumber(String registrationNumber) {
+        return studentRepository.findByRegistrationNumber(registrationNumber).get();
+    }
+
 }

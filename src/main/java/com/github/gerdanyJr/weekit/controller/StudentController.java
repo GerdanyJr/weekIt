@@ -40,4 +40,9 @@ public class StudentController {
     public ResponseEntity<Student> findById(@PathVariable Long id) {
         return ResponseEntity.ok(studentService.findById(id));
     }
+
+    @GetMapping("matricula/{registrationNumber}")
+    public ResponseEntity<Student> findByRegistrationNumber(@PathVariable String registrationNumber) {
+        return ResponseEntity.ok(studentService.findByRegistrationNumber(registrationNumber));
+    }
 }
