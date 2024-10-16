@@ -15,4 +15,6 @@ public interface StudentService {
     public Student findByRegistrationNumber(String registrationNumber);
 
     public Student update(Long id, CreateStudentReq req);
+    
+    public void delete(Long id);
 }
