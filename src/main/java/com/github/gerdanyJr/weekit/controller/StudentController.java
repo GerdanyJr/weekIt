@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,5 +45,10 @@ public class StudentController {
     @GetMapping("matricula/{registrationNumber}")
     public ResponseEntity<Student> findByRegistrationNumber(@PathVariable String registrationNumber) {
         return ResponseEntity.ok(studentService.findByRegistrationNumber(registrationNumber));
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Student> update(@PathVariable Long id, @RequestBody @Valid CreateStudentReq req) {
+        return ResponseEntity.ok(studentService.update(id, req));
     }
 }
