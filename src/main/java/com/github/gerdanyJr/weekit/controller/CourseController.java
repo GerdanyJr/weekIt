@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.gerdanyJr.weekit.model.entities.Course;
@@ -37,6 +38,11 @@ public class CourseController {
     @GetMapping("/{id}")
     public ResponseEntity<Course> findById(@PathVariable Long id) {
         return ResponseEntity.ok(courseService.findById(id));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Course>> searchByName(@RequestParam(name = "name", required = true) String name) {
+        return ResponseEntity.ok(courseService.searchByName(name));
     }
 
 }
