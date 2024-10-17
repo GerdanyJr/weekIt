@@ -57,6 +57,22 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student update(Long id, CreateStudentReq req) {
+        Optional<Student> foundByCpf = studentRepository.findByCpf(req.cpf());
+
+        foundByCpf.ifPresent((student) -> {
+            if (student.getId() != id) {
+                throw new ConflictException("Student already found with cpf: " + req.cpf());
+            }
+        });
+
+        Optional<Student> foundByRegistration = studentRepository.findByRegistrationNumber(req.registrationNumber());
+
+        foundByRegistration.ifPresent((student) -> {
+            if (student.getId() != id) {
+                throw new ConflictException("Student already found with registration: " + req.registrationNumber());
+            }
+        });
+
         Student foundStudent = studentRepository.findById(id).get();
 
         BeanUtils.copyProperties(req, foundStudent);
