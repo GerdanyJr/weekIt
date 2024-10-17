@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.github.gerdanyJr.weekit.model.exceptions.ConflictException;
+import com.github.gerdanyJr.weekit.model.exceptions.NotFoundException;
 import com.github.gerdanyJr.weekit.model.res.ErrorResponse;
 
 @RestControllerAdvice
@@ -21,6 +22,17 @@ public class ErrorHandler {
                         e.getMessage(),
                         HttpStatus.CONFLICT,
                         HttpStatus.CONFLICT.value(),
+                        LocalDateTime.now()));
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorResponse> notFoundExceptionHandler(NotFoundException e) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(new ErrorResponse(
+                        e.getMessage(),
+                        HttpStatus.NOT_FOUND,
+                        HttpStatus.NOT_FOUND.value(),
                         LocalDateTime.now()));
     }
 
