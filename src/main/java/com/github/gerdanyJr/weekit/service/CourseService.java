@@ -10,4 +10,6 @@ public interface CourseService {
     public List<Course> findAll();
 
     public Course findById(Long id);
+
+    public List<Course> searchByName(String name);
 }
