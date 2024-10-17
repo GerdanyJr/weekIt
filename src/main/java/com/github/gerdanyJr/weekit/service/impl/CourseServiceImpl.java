@@ -1,5 +1,6 @@
 package com.github.gerdanyJr.weekit.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
@@ -31,6 +32,11 @@ public class CourseServiceImpl implements CourseService {
         Course course = new Course();
         BeanUtils.copyProperties(req, course);
         return courseRepository.save(course);
+    }
+
+    @Override
+    public List<Course> findAll() {
+        return courseRepository.findAll();
     }
 
 }
