@@ -49,4 +49,9 @@ public class CourseServiceImpl implements CourseService {
         return course;
     }
 
+    @Override
+    public List<Course> searchByName(String name) {
+        return courseRepository.findByNameStartingWith(name);
+    }
+
 }
