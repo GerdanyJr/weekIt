@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.gerdanyJr.weekit.model.entities.Student;
 import com.github.gerdanyJr.weekit.model.exceptions.ConflictException;
+import com.github.gerdanyJr.weekit.model.exceptions.NotFoundException;
 import com.github.gerdanyJr.weekit.model.req.CreateStudentReq;
 import com.github.gerdanyJr.weekit.repository.StudentRepository;
 import com.github.gerdanyJr.weekit.service.StudentService;
@@ -47,12 +48,16 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student findById(Long id) {
-        return studentRepository.findById(id).get();
+        Student foundById = studentRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Student not found with id: " + id));
+
+        return foundById;
     }
 
     @Override
     public Student findByRegistrationNumber(String registrationNumber) {
-        return studentRepository.findByRegistrationNumber(registrationNumber).get();
+        return studentRepository.findByRegistrationNumber(registrationNumber)
+                .orElseThrow(() -> new NotFoundException("Student not found with registration: " + registrationNumber));
     }
 
     @Override
@@ -73,7 +78,8 @@ public class StudentServiceImpl implements StudentService {
             }
         });
 
-        Student foundStudent = studentRepository.findById(id).get();
+        Student foundStudent = studentRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Student not found with id: " + id));
 
         BeanUtils.copyProperties(req, foundStudent);
 
@@ -82,7 +88,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void delete(Long id) {
-        Student student = studentRepository.findById(id).get();
+        Student student = studentRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Student not found with id: " + id));
 
         studentRepository.delete(student);
     }
