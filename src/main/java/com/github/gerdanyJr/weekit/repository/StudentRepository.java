@@ -8,4 +8,6 @@ import com.github.gerdanyJr.weekit.model.entities.Student;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
     public Optional<Student> findByRegistrationNumber(String registrationNumber);
+
+    public Optional<Student> findByCpf(String cpf);
 }
