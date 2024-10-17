@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.github.gerdanyJr.weekit.model.entities.Course;
 import com.github.gerdanyJr.weekit.model.exceptions.ConflictException;
+import com.github.gerdanyJr.weekit.model.exceptions.NotFoundException;
 import com.github.gerdanyJr.weekit.model.req.CreateCourseReq;
 import com.github.gerdanyJr.weekit.repository.CourseRepository;
 import com.github.gerdanyJr.weekit.service.CourseService;
@@ -37,6 +38,15 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<Course> findAll() {
         return courseRepository.findAll();
+    }
+
+    @Override
+    public Course findById(Long id) {
+        Optional<Course> foundById = courseRepository.findById(id);
+
+        Course course = foundById.orElseThrow(() -> new NotFoundException("Course not found with id: " + id));
+
+        return course;
     }
 
 }

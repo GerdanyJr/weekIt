@@ -8,4 +8,6 @@ public interface CourseService {
     public Course createCourse(CreateCourseReq req);
 
     public List<Course> findAll();
+
+    public Course findById(Long id);
 }
