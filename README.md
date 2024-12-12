@@ -300,14 +300,14 @@ public class Handler {
 - [ ]  [Implementar lançamento de exceção para alunos não encontrados](https://github.com/GerdanyJr/weekIt/pull/10/commits)
 - [ ]  [Implementar tratamento para exceção de validação (Bean Validation)](https://github.com/GerdanyJr/weekIt/pull/11/commits)
 
-### CRUD de Minicurso
+### [CRUD de Minicurso](https://github.com/GerdanyJr/weekIt/pull/18/commits)
 
 - [ ]  [POST minicurso/](https://github.com/GerdanyJr/weekIt/pull/13/commits) → Endpoint para cadastrar um minicurso
 - [ ]  [GET minicurso/](https://github.com/GerdanyJr/weekIt/pull/14/commits) → Endpoint para obter todos os minicursos
 - [ ]  [GET minicurso/{id}](https://github.com/GerdanyJr/weekIt/pull/15/commits) → Endpoint para obter minicurso por id
 - [ ]  [GET minicurso?search=””](https://github.com/GerdanyJr/weekIt/pull/16/commits) → Endpoint para buscar minicurso por nome
 - [ ]  [PATCH minicursos/{id}](https://github.com/GerdanyJr/weekIt/pull/17/commits) → Endpoint para atualizar minicurso
-- [ ]  DELETE minicursos/{id} → Endpoint para deletar minicurso
+- [ ]  [DELETE minicursos/{id}](https://github.com/GerdanyJr/weekIt/commit/719907b87ae53dca295b75d35b84f3788396d04d) → Endpoint para deletar minicurso
 
 ### CRUD de Participações
 
