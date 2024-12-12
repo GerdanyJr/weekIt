@@ -306,7 +306,7 @@ public class Handler {
 - [ ]  [GET minicurso/](https://github.com/GerdanyJr/weekIt/pull/14/commits) → Endpoint para obter todos os minicursos
 - [ ]  [GET minicurso/{id}](https://github.com/GerdanyJr/weekIt/pull/15/commits) → Endpoint para obter minicurso por id
 - [ ]  [GET minicurso?search=””](https://github.com/GerdanyJr/weekIt/pull/16/commits) → Endpoint para buscar minicurso por nome
-- [ ]  PATCH minicursos/{id} → Endpoint para atualizar minicurso
+- [ ]  [PATCH minicursos/{id}](https://github.com/GerdanyJr/weekIt/pull/17/commits) → Endpoint para atualizar minicurso
 - [ ]  DELETE minicursos/{id} → Endpoint para deletar minicurso
 
 ### CRUD de Participações
