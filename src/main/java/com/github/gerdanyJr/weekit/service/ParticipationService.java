@@ -17,4 +17,6 @@ public interface ParticipationService {
     public List<Participation> findAllByCourse(Long courseId);
 
     public Participation update(Long id, CreateParticipationReq req);
+
+    public void delete(Long id);
 }
