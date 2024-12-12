@@ -14,4 +14,6 @@ public interface CourseService {
     public List<Course> searchByName(String name);
 
     public Course update(Long id, CreateCourseReq req);
+
+    public void delete(Long id);
 }

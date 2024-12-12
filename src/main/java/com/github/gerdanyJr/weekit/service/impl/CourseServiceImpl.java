@@ -65,4 +65,13 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.save(foundCourse);
     }
 
+    @Override
+    public void delete(Long id) {
+        Course foundCourse = courseRepository
+                .findById(id)
+                .orElseThrow(() -> new NotFoundException("Course not found with id: " + id));
+
+        courseRepository.delete(foundCourse);
+    }
+
 }
