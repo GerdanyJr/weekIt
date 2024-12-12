@@ -311,7 +311,7 @@ public class Handler {
 
 ### CRUD de Participações
 
-- [ ]  POST participacoes/
+- [ ]  [POST participacoes/](https://github.com/GerdanyJr/weekIt/pull/19) -> Endpoint para cadastrar uma participação
 - [ ]  GET participacoes/{id}
 - [ ]  PATCH participacoes/{id}
 - [ ]  DELETE participacoes/{id}
