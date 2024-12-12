@@ -314,7 +314,7 @@ public class Handler {
 - [ ]  [POST participacoes/](https://github.com/GerdanyJr/weekIt/pull/19) → Endpoint para cadastrar uma participação
 - [ ]  [GET participacoes/](https://github.com/GerdanyJr/weekIt/pull/20/commits) → Endpoint para obter todas as participações
 - [ ]  [GET participacoes/{id}](https://github.com/GerdanyJr/weekIt/pull/21) → Endpoint para obter uma participação por id
-- [ ]  GET participacoes/{aluno/id} → Endpoint para obter todas as participações por aluno
-- [ ]  GET participacoes/{curso/id} → Endpoint para obter todas as participações por minicurso
+- [ ]  [GET participacoes/{aluno/id}](https://github.com/GerdanyJr/weekIt/pull/22) → Endpoint para obter todas as participações por aluno
+- [ ]  GET participacoes/{minicurso/id} → Endpoint para obter todas as participações por minicurso
 - [ ]  PATCH participacoes/{id} → Endpoint para atualizar uma participação
 - [ ]  DELETE participacoes/{id} → Endpoint para deletar uma participação
