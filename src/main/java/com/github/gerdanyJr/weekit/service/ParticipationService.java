@@ -11,4 +11,6 @@ public interface ParticipationService {
     public List<Participation> findAll();
 
     public Participation findById(Long id);
+
+    public List<Participation> findAllByStudent(Long id);
 }

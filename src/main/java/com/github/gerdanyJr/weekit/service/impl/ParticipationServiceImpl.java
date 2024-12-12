@@ -39,13 +39,14 @@ public class ParticipationServiceImpl implements ParticipationService {
                 .findById(req.courseId())
                 .orElseThrow(() -> new NotFoundException("Course not found with id: " + req.courseId()));
 
-        participationRepository
-                .findByCourseId(req.courseId())
-                .ifPresent((found) -> {
-                    if (found.getStudent().getId() == req.courseId()) {
-                        throw new ConflictException("Student already registered in course with id: " + req.courseId());
-                    }
-                });
+        List<Participation> courseParticipations = participationRepository
+                .findByCourseId(req.courseId());
+
+        courseParticipations.forEach((participation) -> {
+            if (participation.getStudent().getId() == req.studentId()) {
+                throw new ConflictException("Student already registered in course with id: " + req.courseId());
+            }
+        });
 
         return participationRepository.save(new Participation(null, req.role(), foundStudent, foundCourse));
     }
@@ -62,6 +63,15 @@ public class ParticipationServiceImpl implements ParticipationService {
                 .orElseThrow(() -> new NotFoundException("Participation not found with id: " + id));
 
         return participation;
+    }
+
+    @Override
+    public List<Participation> findAllByStudent(Long id) {
+        Student foundStudent = studentRepository
+                .findById(id)
+                .orElseThrow(() -> new NotFoundException("Student not found with id: " + id));
+
+        return participationRepository.findByStudent(foundStudent);
     }
 
 }
