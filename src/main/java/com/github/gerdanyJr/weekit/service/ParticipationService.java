@@ -9,4 +9,6 @@ public interface ParticipationService {
     public Participation create(CreateParticipationReq req);
 
     public List<Participation> findAll();
+
+    public Participation findById(Long id);
 }
