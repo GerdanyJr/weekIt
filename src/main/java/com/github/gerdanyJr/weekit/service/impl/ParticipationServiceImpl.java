@@ -74,4 +74,13 @@ public class ParticipationServiceImpl implements ParticipationService {
         return participationRepository.findByStudent(foundStudent);
     }
 
+    @Override
+    public List<Participation> findAllByCourse(Long courseId) {
+        Course foundCourse = courseRepository
+                .findById(courseId)
+                .orElseThrow(() -> new NotFoundException("Course not found with id: " + courseId));
+
+        return participationRepository.findByCourse(foundCourse);
+    }
+
 }

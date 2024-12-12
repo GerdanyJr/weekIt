@@ -12,5 +12,7 @@ public interface ParticipationService {
 
     public Participation findById(Long id);
 
-    public List<Participation> findAllByStudent(Long id);
+    public List<Participation> findAllByStudent(Long studentId);
+
+    public List<Participation> findAllByCourse(Long courseId);
 }
