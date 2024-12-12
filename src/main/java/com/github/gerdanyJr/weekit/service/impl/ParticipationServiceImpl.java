@@ -109,4 +109,13 @@ public class ParticipationServiceImpl implements ParticipationService {
         return participationRepository.save(participation);
     }
 
+    @Override
+    public void delete(Long id) {
+        Participation foundParticipation = participationRepository
+                .findById(id)
+                .orElseThrow(() -> new NotFoundException("Participation not found with id: " + id));
+
+        participationRepository.delete(foundParticipation);
+    }
+
 }
