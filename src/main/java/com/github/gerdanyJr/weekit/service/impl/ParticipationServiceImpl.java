@@ -2,6 +2,7 @@ package com.github.gerdanyJr.weekit.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.github.gerdanyJr.weekit.model.entities.Course;
@@ -81,6 +82,31 @@ public class ParticipationServiceImpl implements ParticipationService {
                 .orElseThrow(() -> new NotFoundException("Course not found with id: " + courseId));
 
         return participationRepository.findByCourse(foundCourse);
+    }
+
+    @Override
+    public Participation update(Long id, CreateParticipationReq req) {
+        Participation participation = participationRepository
+                .findById(id)
+                .orElseThrow(() -> new NotFoundException("Participation not found with id: " + id));
+
+        if (req.courseId() != participation.getCourse().getId()) {
+            Course foundCourse = courseRepository
+                    .findById(req.courseId())
+                    .orElseThrow(() -> new NotFoundException("Course not found with id: " + req.courseId()));
+            participation.setCourse(foundCourse);
+        }
+
+        if (req.studentId() != participation.getStudent().getId()) {
+            Student foundStudent = studentRepository
+                    .findById(req.studentId())
+                    .orElseThrow(() -> new NotFoundException("Student not found with id: " + req.studentId()));
+            participation.setStudent(foundStudent);
+        }
+
+        BeanUtils.copyProperties(req, participation);
+
+        return participationRepository.save(participation);
     }
 
 }
