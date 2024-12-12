@@ -37,4 +37,9 @@ public class ParticipationController {
     public ResponseEntity<Participation> findByid(@PathVariable Long id) {
         return ResponseEntity.ok(participationService.findById(id));
     }
+
+    @GetMapping("aluno/{id}")
+    public ResponseEntity<List<Participation>> findAllByStudent(@PathVariable Long id) {
+        return ResponseEntity.ok(participationService.findAllByStudent(id));
+    }
 }
