@@ -309,7 +309,7 @@ public class Handler {
 - [ ]  [PATCH minicursos/{id}](https://github.com/GerdanyJr/weekIt/pull/17/commits) → Endpoint para atualizar minicurso
 - [ ]  [DELETE minicursos/{id}](https://github.com/GerdanyJr/weekIt/commit/719907b87ae53dca295b75d35b84f3788396d04d) → Endpoint para deletar minicurso
 
-### CRUD de Participações
+### [CRUD de Participações](https://github.com/GerdanyJr/weekIt/pull/26)
 
 - [ ]  [POST participacoes/](https://github.com/GerdanyJr/weekIt/pull/19) → Endpoint para cadastrar uma participação
 - [ ]  [GET participacoes/](https://github.com/GerdanyJr/weekIt/pull/20/commits) → Endpoint para obter todas as participações
@@ -317,4 +317,4 @@ public class Handler {
 - [ ]  [GET participacoes/{aluno/id}](https://github.com/GerdanyJr/weekIt/pull/22) → Endpoint para obter todas as participações por aluno
 - [ ]  [GET participacoes/{minicurso/id}](https://github.com/GerdanyJr/weekIt/pull/23) → Endpoint para obter todas as participações por minicurso
 - [ ]  [PATCH participacoes/{id}](https://github.com/GerdanyJr/weekIt/pull/24) → Endpoint para atualizar uma participação
-- [ ]  DELETE participacoes/{id} → Endpoint para deletar uma participação
+- [ ]  [DELETE participacoes/{id}](https://github.com/GerdanyJr/weekIt/pull/25) → Endpoint para deletar uma participação
