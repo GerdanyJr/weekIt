@@ -42,4 +42,9 @@ public class ParticipationController {
     public ResponseEntity<List<Participation>> findAllByStudent(@PathVariable Long id) {
         return ResponseEntity.ok(participationService.findAllByStudent(id));
     }
+
+    @GetMapping("minicurso/{id}")
+    public ResponseEntity<List<Participation>> findAllByCourse(@PathVariable Long id) {
+        return ResponseEntity.ok(participationService.findAllByCourse(id));
+    }
 }
