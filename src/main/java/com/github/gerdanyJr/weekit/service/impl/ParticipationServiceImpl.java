@@ -1,5 +1,7 @@
 package com.github.gerdanyJr.weekit.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.github.gerdanyJr.weekit.model.entities.Course;
@@ -46,6 +48,11 @@ public class ParticipationServiceImpl implements ParticipationService {
                 });
 
         return participationRepository.save(new Participation(null, req.role(), foundStudent, foundCourse));
+    }
+
+    @Override
+    public List<Participation> findAll() {
+        return participationRepository.findAll();
     }
 
 }
