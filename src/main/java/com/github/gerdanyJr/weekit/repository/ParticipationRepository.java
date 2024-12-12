@@ -1,14 +1,15 @@
 package com.github.gerdanyJr.weekit.repository;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.github.gerdanyJr.weekit.model.entities.Participation;
+import com.github.gerdanyJr.weekit.model.entities.Student;
 
 public interface ParticipationRepository extends JpaRepository<Participation, Long> {
-    public Optional<Participation> findByStudentId(Long studentId);
+    public List<Participation> findByStudent(Student student);
 
-    public Optional<Participation> findByCourseId(Long courseId);
+    public List<Participation> findByCourseId(Long courseId);
 
 }
