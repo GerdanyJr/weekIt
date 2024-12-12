@@ -12,4 +12,6 @@ public interface CourseService {
     public Course findById(Long id);
 
     public List<Course> searchByName(String name);
+
+    public Course update(Long id, CreateCourseReq req);
 }

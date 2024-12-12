@@ -54,4 +54,15 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findByNameStartingWith(name);
     }
 
+    @Override
+    public Course update(Long id, CreateCourseReq req) {
+        Course foundCourse = courseRepository
+                .findById(id)
+                .orElseThrow(() -> new NotFoundException("Course not found with id: " + id));
+
+        BeanUtils.copyProperties(req, foundCourse);
+
+        return courseRepository.save(foundCourse);
+    }
+
 }
