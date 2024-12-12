@@ -3,6 +3,7 @@ package com.github.gerdanyJr.weekit.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,5 +57,11 @@ public class ParticipationController {
             @RequestBody @Valid CreateParticipationReq req,
             @PathVariable("id") Long id) {
         return ResponseEntity.ok(participationService.update(id, req));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+        participationService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
