@@ -55,4 +55,13 @@ public class ParticipationServiceImpl implements ParticipationService {
         return participationRepository.findAll();
     }
 
+    @Override
+    public Participation findById(Long id) {
+        Participation participation = participationRepository
+                .findById(id)
+                .orElseThrow(() -> new NotFoundException("Participation not found with id: " + id));
+
+        return participation;
+    }
+
 }
