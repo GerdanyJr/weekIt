@@ -41,7 +41,7 @@ public class ParticipationServiceImpl implements ParticipationService {
                 .orElseThrow(() -> new NotFoundException("Course not found with id: " + req.courseId()));
 
         List<Participation> courseParticipations = participationRepository
-                .findByCourseId(req.courseId());
+                .findByCourse(foundCourse);
 
         courseParticipations.forEach((participation) -> {
             if (participation.getStudent().getId() == req.studentId()) {

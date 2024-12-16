@@ -10,8 +10,6 @@ import com.github.gerdanyJr.weekit.model.entities.Student;
 
 public interface ParticipationRepository extends JpaRepository<Participation, Long> {
     public List<Participation> findByStudent(Student student);
-
-    public List<Participation> findByCourseId(Long courseId);
     
     public List<Participation> findByCourse(Course course);
 
