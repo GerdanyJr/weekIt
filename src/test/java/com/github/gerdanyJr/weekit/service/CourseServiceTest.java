@@ -162,6 +162,22 @@ public class CourseServiceTest {
     }
 
     @Test
+    @DisplayName("")
+    void givenExistingCourse_whenUpdate_thenThrowExceptions() {
+        when(courseRepository.findById(anyLong()))
+                .thenReturn(Optional.of(course));
+
+        when(courseRepository.findByName(anyString()))
+                .thenReturn(Optional.of(course));
+
+        ConflictException e = assertThrows(ConflictException.class, () -> {
+            courseService.update(1L, req);
+        });
+
+        assertEquals("Course already found with name: " + course.getName(), e.getMessage());
+    }
+
+    @Test
     @DisplayName("should call delete on repository when delete is called with a valid id")
     void givenExistingId_whenDelete_thenCallDeleteCourse() {
         when(courseRepository.findById(anyLong()))
