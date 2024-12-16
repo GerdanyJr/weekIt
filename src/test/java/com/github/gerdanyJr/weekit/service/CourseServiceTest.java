@@ -162,7 +162,7 @@ public class CourseServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("should throw a exception when update is called with a existing course")
     void givenExistingCourse_whenUpdate_thenThrowExceptions() {
         when(courseRepository.findById(anyLong()))
                 .thenReturn(Optional.of(course));
