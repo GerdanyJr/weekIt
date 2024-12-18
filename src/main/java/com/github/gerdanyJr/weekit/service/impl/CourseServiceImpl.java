@@ -60,6 +60,13 @@ public class CourseServiceImpl implements CourseService {
                 .findById(id)
                 .orElseThrow(() -> new NotFoundException("Course not found with id: " + id));
 
+        Optional<Course> foundByNameCourse = courseRepository
+                .findByName(req.name());
+
+        foundByNameCourse.ifPresent((course) -> {
+            throw new ConflictException("Course already found with name: " + course.getName());
+        });
+
         BeanUtils.copyProperties(req, foundCourse);
 
         return courseRepository.save(foundCourse);
