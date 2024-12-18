@@ -18,6 +18,8 @@ import com.github.gerdanyJr.weekit.model.entities.Course;
 import com.github.gerdanyJr.weekit.model.req.CreateCourseReq;
 import com.github.gerdanyJr.weekit.service.CourseService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/minicursos")
 public class CourseController {
@@ -28,7 +30,7 @@ public class CourseController {
     }
 
     @PostMapping
-    public ResponseEntity<Course> create(@RequestBody CreateCourseReq req) {
+    public ResponseEntity<Course> create(@RequestBody @Valid CreateCourseReq req) {
         return ResponseEntity.status(HttpStatus.CREATED).body(courseService.createCourse(req));
     }
 
@@ -48,7 +50,7 @@ public class CourseController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Course> updateCourse(@PathVariable("id") Long id, @RequestBody CreateCourseReq req) {
+    public ResponseEntity<Course> updateCourse(@PathVariable("id") Long id, @RequestBody @Valid CreateCourseReq req) {
         return ResponseEntity.ok(courseService.update(id, req));
     }
 
